@@ -15,7 +15,7 @@ export default class App extends Component {
     const { data } = await axios.get(
       `https://pro.ip-api.com/json?key=${process.env.REACT_APP_API_KEY}`
     );
-    this.setState({ isLoading: false, data });
+    this.setState({ isLoading: true, data });
   };
 
   componentDidMount() {
@@ -28,8 +28,8 @@ export default class App extends Component {
       <div className="container">
         {isLoading ? (
           <div className="loader">
-            <div className="loader__gif">
-              <img src="./loading.gif" alt="loader" />
+            <div className="loader_gif">
+              <img src="https://i.pinimg.com/originals/65/ba/48/65ba488626025cff82f091336fbf94bb.gif" alt="loader" />
             </div>
           </div>
         ) : (
