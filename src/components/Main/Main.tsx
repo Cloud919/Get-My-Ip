@@ -1,11 +1,11 @@
 import React from 'react';
 import './Main.css';
 
-type GreetingProps = {
+type MainProps = {
     data: any
 }
 
-const Main: React.FC<GreetingProps> = ({data}) => (
+const Main = ({data}: MainProps) => (
     <div className="main">
         Your IP is {data.query}<br />
         Current country is {data.country}
