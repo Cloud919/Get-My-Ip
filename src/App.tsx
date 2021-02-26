@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Main from './components/Main/Main';
+import Footer from './components/Footer/Footer';
 import './App.css';
 
 export default class App extends Component {
@@ -20,11 +21,22 @@ export default class App extends Component {
   }
   
   render(){
-    const { data } = this.state;
+    const { isLoading, data } = this.state;
     return (
-      <>
-        <Main data={data} />
-      </>
+      <div className="container">
+        {isLoading ? (
+          <div className="loader">
+            <div className="loader__gif">
+              <img src="./loading.gif" alt="loader" />
+            </div>
+          </div>
+        ) : (
+          <div className="main">
+            <Main data={data} />
+            <Footer />
+          </div>
+        )}
+      </div>
     );
   }
 }
