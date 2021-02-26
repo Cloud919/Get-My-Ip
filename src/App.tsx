@@ -1,8 +1,12 @@
 import React from 'react';
-import TestApi from './api/testApi';
+import axios from 'axios';
+import Main from './components/Main';
+import './App.css';
 
-function App() {
-  return <TestApi />;
+const App: React.FC = () => {
+  return (
+    <Main />
+  );
 }
 
 export default App;
