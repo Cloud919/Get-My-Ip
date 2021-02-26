@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 import './App.css';
@@ -32,6 +33,7 @@ export default class App extends Component {
           </div>
         ) : (
           <div className="main">
+            <Header />
             <Main data={data} />
             <Footer />
           </div>
