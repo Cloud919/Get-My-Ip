@@ -10,7 +10,7 @@ export default class App extends Component {
   }
   GetMyIP = async () => {
     const { data } = await axios.get(
-      "https://pro.ip-api.com/json?key=yaPob1D4ChKc0dr"
+      "https://pro.ip-api.com/json?key="{process.env.REACT_APP_API_KEY}"
     );
     //console.log(data);
     this.setState({ isLoading: false, data });
@@ -18,6 +18,7 @@ export default class App extends Component {
   };
 
   componentDidMount() {
+    console.log(process.env.REACT_APP_API_KEY);
     this.GetMyIP(); 
   }
   
