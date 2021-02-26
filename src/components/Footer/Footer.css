@@ -34,9 +34,3 @@ a {
     display: table-cell;
     vertical-align: middle;
   }
-  
-  .footer_copyright {
-    font-weight: 400;
-    font-size: 1.3vh;
-    padding-top: 2vh;
-  }
