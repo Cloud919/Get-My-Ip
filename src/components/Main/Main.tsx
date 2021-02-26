@@ -6,7 +6,10 @@ type GreetingProps = {
 }
 
 const Main: React.FC<GreetingProps> = ({data}) => (
-    <div className="main">Your IP is {data.query}</div>
+    <div className="main">
+        Your IP is {data.query}<br />
+        Current country is {data.country}
+    </div>
 );
 
 export default Main;
