@@ -1,0 +1,42 @@
+a {
+    text-decoration: none;
+    padding-right: 1vh;
+  
+    color: #35373e;
+  }
+  a:visited {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  a:focus {
+    text-decoration: none;
+  }
+  a:hover,
+  a:active {
+    text-decoration: none;
+  }
+  
+  .footer {
+    z-index: 2;
+    display: table;
+    position: absolute;
+    height: 13%;
+  
+    text-align: center;
+    background-color: white;
+    color: #35373e;
+    width: 100%;
+  }
+  
+  .footer_inner {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .footer_copyright {
+    font-weight: 400;
+    font-size: 1.3vh;
+    padding-top: 2vh;
+  }
