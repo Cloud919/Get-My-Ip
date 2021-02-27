@@ -1,7 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
 import './Main.css';
 
-const MAP_API_KEY: string = process.env.REACT_APP_MAP_API_KEY || "Wrong API Key Value";
+const Wrapper = styled.div`
+    width: 400px;
+`;
 
 type MainProps = {
     data: any
@@ -11,6 +14,7 @@ const Main = ({data}: MainProps) => (
     <div className="main">
         Your IP is {data.query}<br />
         Current country is {data.countryCode}<br />
+        <Wrapper id="Map"></Wrapper>
     </div>
 );
 
