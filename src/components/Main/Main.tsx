@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import './Main.css';
 
@@ -11,19 +11,34 @@ interface dataProps {
     data: any;
 }
 
+declare global {
+    interface Window {
+        kakao: any;
+    }
+}
+
+
 const Main: React.FC<dataProps> = props => {
     let data = props.data;
     data= JSON.parse(data);
+    useEffect(() => {
+        let container = document.getElementById('map');
+        let options = {
+            center: new window.kakao.maps.LatLng(data.lat, data.lon),
+            level: 3
+        };
+        let map = new window.kakao.maps.Map(container, options); //eslint-disable-line
+    }, []) //eslint-disable-line
     return(
     <div className="main">
         Your IP is {data.query}<br />
         Current country is {data.countryCode}<br />
-        <Wrapper id="Map"></Wrapper>
+        <Wrapper id="map" />
     </div>
     );
-}
+} 
 
-export default Main;
+export default Main; 
 
 
 
