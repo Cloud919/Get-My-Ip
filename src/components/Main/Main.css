@@ -6,11 +6,11 @@
 }
 
 .main_text {
-    color: #ff8000;
+    font-size: 32px;
 }
 
 .main_text .ip {
-    font-size: 32px;
+    font-size: 40px;
     font-weight: bold;
 }
 
@@ -32,4 +32,9 @@
         left: 50%;
         margin: -17% 0 0 -20%;
     }
-  }
+}
+#kakaoAddr {
+    display:block;
+    margin-top:2px;
+    font-weight: normal;
+}
