@@ -22,13 +22,15 @@ const Main: React.FC<dataProps> = props => {
     let data = props.data;
     data= JSON.parse(data);
     useEffect(() => {
-        let container = document.getElementById('map');
-        let options = {
+        let container = document.getElementById('map'),
+         options = {
             center: new window.kakao.maps.LatLng(data.lat, data.lon),
-            level: 3
+            level: 3,
+            draggable: false
         };
-        let map = new window.kakao.maps.Map(container, options); //eslint-disable-line
-    }, []) //eslint-disable-line
+        let map = new window.kakao.maps.Map(container, options);
+        return map;
+    })
     return(
     <div className="main">
         Your IP is {data.query}<br />
