@@ -11,8 +11,11 @@ interface dataProps {
     data: any;
 }
 
-declare var kakao: any;
-
+declare global {
+    interface Window {
+        kakao: any;
+    }
+}
 
 const Main: React.FC<dataProps> = props => {
     let data = props.data;
@@ -23,14 +26,14 @@ const Main: React.FC<dataProps> = props => {
         script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.REACT_APP_MAP_API_KEY}&autoload=false`;
         document.head.appendChild(script);
         script.onload = () => {
-            kakao.maps.load(() => {
+            window.kakao.maps.load(() => {
                 let container = document.getElementById('map'),
                 options = {
-                    center: new kakao.maps.LatLng(data.lat, data.lon),
+                    center: new window.kakao.maps.LatLng(data.lat, data.lon),
                     level: 3,
                     draggable: false
                 };
-                const map = new kakao.maps.Map(container, options);
+                const map = new window.kakao.maps.Map(container, options);
                 return map;
             });
         }
