@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import './Main.css';
 
 const Wrapper = styled.div`
-    width: 400px;
+    width: 500px;
+    height: 400px;
 `;
 
 type MainProps = {
