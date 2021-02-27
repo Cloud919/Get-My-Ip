@@ -1,24 +1,4 @@
-a {
-    text-decoration: none;
-    padding-right: 1vh;
-  
-    color: #35373e;
-  }
-  a:visited {
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: none;
-  }
-  a:focus {
-    text-decoration: none;
-  }
-  a:hover,
-  a:active {
-    text-decoration: none;
-  }
-  
-  .footer {
+ .footer {
     z-index: 2;
     display: table;
     position: absolute;
@@ -29,6 +9,26 @@ a {
     color: #35373e;
     width: 100%;
     bottom: 0;
+  }
+
+  .footer a {
+    text-decoration: none;
+    padding-right: 1vh;
+  
+    color: #35373e;
+  }
+  .footer a:visited {
+    text-decoration: none;
+  }
+  .footer a:hover {
+    text-decoration: none;
+  }
+  .footer a:focus {
+    text-decoration: none;
+  }
+  .footer a:hover,
+  .footer a:active {
+    text-decoration: none;
   }
   
   .footer_inner {

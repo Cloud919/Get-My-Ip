@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import './Main.css';
 
-const Wrapper = styled.div`
+const Map = styled.div`
     width: 600px;
     height: 300px;
     position: absolute;
@@ -43,11 +43,13 @@ const Main: React.FC<dataProps> = props => {
         }
     })
     return(
-    <div className="main">
-        Your IP is {data.query}<br />
-        Current country is {data.countryCode}<br />
-        <Wrapper id="map" />
-    </div>
+        <div className="main">
+            <div className="out_box">
+                Your IP is {data.query}<br />
+                Current country is {data.countryCode}<br />
+                <Map id="map" />
+            </div>
+        </div>
     );
 } 
 
