@@ -3,8 +3,12 @@ import styled from 'styled-components';
 import './Main.css';
 
 const Wrapper = styled.div`
-    width: 500px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -150px;
 `;
 
 interface dataProps {
@@ -31,7 +35,7 @@ const Main: React.FC<dataProps> = props => {
                 options = {
                     center: new window.kakao.maps.LatLng(data.lat, data.lon),
                     level: 3,
-                    draggable: false
+                    draggable: true
                 };
                 const map = new window.kakao.maps.Map(container, options);
                 return map;
@@ -47,19 +51,4 @@ const Main: React.FC<dataProps> = props => {
     );
 } 
 
-export default Main; 
-
-
-
-/* export default class Main extends React.Component {
-    render(){
-        const data = this.props.data;
-        return (
-            <div className="main">
-                Your IP is 127.0.0.1<br />
-                Current country is KR<br />
-                <Wrapper id="Map"></Wrapper>
-            </div>
-        );
-    }
-} */
+export default Main;
