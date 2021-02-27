@@ -1,15 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
-.main {
+body {
     font-family: 'Noto Sans KR', sans-serif;
+    background-color: #263343;
+}
+
+.main_page {
+    margin-top: 50px;
     text-align: center;
 }
 
 .main_text {
     font-size: 32px;
+    color: white;
 }
 
-.main_text .ip {
+.main_text .ip_country {
     font-size: 40px;
     font-weight: bold;
 }
@@ -30,9 +36,21 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        margin: -17% 0 0 -20%;
+        margin: -13% 0 0 -20%;
     }
 }
+
+@media only screen and (max-width: 375px) {
+    #map{
+        width: 80%;
+        height: 30%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: 15% 0 0 -40%;
+    }
+}
+
 #kakaoAddr {
     display:block;
     margin-top:2px;

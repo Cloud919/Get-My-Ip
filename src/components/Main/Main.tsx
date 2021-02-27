@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Main.css';
 
 interface dataProps {
@@ -11,7 +11,12 @@ declare global {
     }
 }
 
+interface  addressProps {
+    address: any;
+}
+
 const Main: React.FC<dataProps> = props => {
+    const [ address, setAddress ] = useState<addressProps>({address: null});
     let data = props.data;
     data= JSON.parse(data);
     useEffect(() => {
@@ -28,17 +33,32 @@ const Main: React.FC<dataProps> = props => {
                 };
                 const map = new window.kakao.maps.Map(container, options);
                 const geocoder = new window.kakao.maps.services.Geocoder();
+                const markerPosition  = new window.kakao.maps.LatLng(data.lat, data.lon);
+                const marker = new window.kakao.maps.Marker({
+                    position: markerPosition
+                });
+                marker.setMap(map);
+                const iwContent = `<div style="padding:2px;">${address.address} <br><a href="https://map.kakao.com/link/map/${address.address},${data.lat},${data.lon}" style="color:blue" target="_blank">큰지도보기</a><br><br></div>`,
+                      iwPosition = new window.kakao.maps.LatLng(data.lat, data.lon);
+                const infowindow = new window.kakao.maps.InfoWindow({
+                    position : iwPosition, 
+                    content : iwContent 
+                });
+                infowindow.open(map, marker); 
                 searchAddrFromCoords(map.getCenter(), displayCenterInfo);
                 function searchAddrFromCoords(coords: any, callback: any) {
                     geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);         
                 }
-                function displayCenterInfo(result: any, status: any) {
+                function displayCenterInfo(result: any, status: string) {
                     if (status === window.kakao.maps.services.Status.OK) {
                         const infoDiv = document.getElementById('kakaoAddr');
-                
                         for(let i = 0; i < result.length; i++) {
                             if (result[i].region_type === 'H') {
                                 if (infoDiv) {
+                                    if (!address.address) {
+                                        setAddress({address: result[i].address_name});
+                                        break;
+                                    }
                                     infoDiv.innerHTML = result[i].address_name;
                                     break;
                                 }
@@ -51,12 +71,11 @@ const Main: React.FC<dataProps> = props => {
         }
     })
     return(
-        <div className="main">
+        <div className="main_page">
             <div className="main_text">
-                Your IP is<br />
-                <span className="ip">{data.query}</span><br />
-                Current country is <span className="">{data.countryCode}</span><br />
-                Location <span id="kakaoAddr">Failed to Load</span>
+                <span className="ip_country">{data.query}</span><br />
+                You are in <span className="ip_country">{data.country}</span><br />
+                <span id="kakaoAddr">Loading...</span>
             </div>
             <div id="map" />
         </div>
