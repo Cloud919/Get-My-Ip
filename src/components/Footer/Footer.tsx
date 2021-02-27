@@ -9,9 +9,10 @@ export default class Footer extends React.Component {
         return(
             <div className="footer">
                 <div className="footer_inner">
-                    <div className="footer_icon">
-                        <a href="https://github.com/Cloud919" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGithub} size="2x" /></a>
-                        <a href="mailto:mswn0919@kakao.com"><FontAwesomeIcon icon={faEnvelope} size="2x" /></a>
+                    <a href="https://github.com/Cloud919" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGithub} size="2x" /></a>
+                    <a href="mailto:mswn0919@kakao.com"><FontAwesomeIcon icon={faEnvelope} size="2x" /></a>
+                    <div className="api_by">
+                        Api by <a href="https://ip-api.com">IP-API</a>
                     </div>
                 </div>
             </div>
