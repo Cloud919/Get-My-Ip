@@ -1,15 +1,5 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import './Main.css';
-
-const Map = styled.div`
-    width: 600px;
-    height: 300px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -150px 0 0 -300px;
-`;
 
 interface dataProps {
     data: any;
@@ -47,7 +37,7 @@ const Main: React.FC<dataProps> = props => {
             <div className="out_box">
                 Your IP is {data.query}<br />
                 Current country is {data.countryCode}<br />
-                <Map id="map" />
+                <div id="map" />
             </div>
         </div>
     );
