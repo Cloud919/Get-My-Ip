@@ -24,8 +24,7 @@ const Main: React.FC<dataProps> = props => {
                 let container = document.getElementById('map'),
                 options = {
                     center: new window.kakao.maps.LatLng(data.lat, data.lon),
-                    level: 3,
-                    draggable: true
+                    level: 3
                 };
                 const map = new window.kakao.maps.Map(container, options);
                 return map;
@@ -34,11 +33,13 @@ const Main: React.FC<dataProps> = props => {
     })
     return(
         <div className="main">
-            <div className="out_box">
-                Your IP is {data.query}<br />
-                Current country is {data.countryCode}<br />
-                <div id="map" />
+            <div className="main_text">
+                Your IP is<br />
+                <span className="ip">{data.query}</span><br />
+                Current country is <span className="">{data.countryCode}</span><br />
+                <span id="kakaoAddr" />
             </div>
+            <div id="map" />
         </div>
     );
 } 
