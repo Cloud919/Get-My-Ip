@@ -5,19 +5,20 @@ interface dataProps {
     data: any;
 }
 
+interface  addressProps {
+    address: any;
+}
+
 declare global {
     interface Window {
         kakao: any;
     }
 }
 
-interface  addressProps {
-    address: any;
-}
-
 const Main: React.FC<dataProps> = props => {
     const [ address, setAddress ] = useState<addressProps>({address: null});
     let data = props.data;
+    let mapAddress = address.address || 'Loading...';
     data= JSON.parse(data);
     useEffect(() => {
         const script = document.createElement('script');
@@ -38,7 +39,7 @@ const Main: React.FC<dataProps> = props => {
                     position: markerPosition
                 });
                 marker.setMap(map);
-                const iwContent = `<div style="padding:2px;">${address.address} <br><a href="https://map.kakao.com/link/map/${address.address},${data.lat},${data.lon}" style="color:blue" target="_blank">큰지도보기</a><br><br></div>`,
+                const iwContent = `<div style="padding:2px;">${mapAddress} <br><a href="https://map.kakao.com/link/map/${mapAddress},${data.lat},${data.lon}" style="color:blue" target="_blank">큰지도보기</a><br><br></div>`,
                       iwPosition = new window.kakao.maps.LatLng(data.lat, data.lon);
                 const infowindow = new window.kakao.maps.InfoWindow({
                     position : iwPosition, 
