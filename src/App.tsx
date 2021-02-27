@@ -12,7 +12,6 @@ export default class App extends Component {
     isLoading: true,
     data: []
   }
-  
   GetMyIP = async () => {
     const { data } = await axios.get(
       `https://pro.ip-api.com/json?field=query,country,countryCode&key=${API_KEY}`
@@ -37,7 +36,7 @@ export default class App extends Component {
         ) : (
           <div className="main">
             <Header />
-            <Main data={data} />
+            <Main data={JSON.stringify(data)}/>
             <Footer />
           </div>
         )}
